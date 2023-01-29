@@ -6,7 +6,7 @@ export function getColor(username: string) {
       return '#a78bfa';
     case 'Apostle13th':
       return '#ef4444';
-    case 'Twig Maximus':
+    case 'TwigMaximus':
       return '#ec4899';
   }
   return '#000000';
