@@ -1,0 +1,37 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Player {
+  id          Int    @id @default(autoincrement())
+  username    String @unique
+  totalAssets Float
+  mechs       Mech[]
+}
+
+model Mech {
+  id         Int      @id @default(autoincrement())
+  claimTime  DateTime @default(now())
+  name       String?
+  model      String
+  claimValue Float
+  totalValue Float
+  player     Player   @relation(fields: [playerId], references: [id])
+  playerId   Int
+  refits     Refit[]
+}
+
+model Refit {
+  id        Int      @id @default(autoincrement())
+  label     String?
+  mech      Mech     @relation(fields: [mechId], references: [id])
+  mechId    Int
+  cost      Float
+  refitTime DateTime @default(now())
+}
