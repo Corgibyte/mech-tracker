@@ -12,7 +12,7 @@ import defaultStyles from './styles.css';
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
-  title: 'New Remix App',
+  title: 'Honeyed Badgers',
   viewport: 'width=device-width,initial-scale=1',
 });
 
