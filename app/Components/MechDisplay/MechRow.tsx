@@ -103,7 +103,9 @@ const MechRow: React.FC<Props> = (props) => {
       ) : null}
       <div className='flex flex-row'>
         <button
-          className='w-1/2 py-px bg-red-600/80 rounded-bl hover:bg-red-500 flex justify-center'
+          className={`w-1/2 py-px ${
+            buttonPane === 'DELETE' ? 'bg-red-500' : 'bg-red-600/80'
+          } rounded-bl hover:bg-red-500 flex justify-center`}
           onClick={() =>
             setButtonPane(buttonPane === 'DELETE' ? null : 'DELETE')
           }
@@ -112,7 +114,9 @@ const MechRow: React.FC<Props> = (props) => {
         </button>
         <button
           onClick={() => setButtonPane(buttonPane === 'REFIT' ? null : 'REFIT')}
-          className='w-1/2 py-px bg-orange-600/80 rounded-br hover:bg-orange-500 flex justify-center'
+          className={`w-1/2 py-px ${
+            buttonPane === 'REFIT' ? 'bg-orange-500' : 'bg-orange-600/80'
+          } rounded-br hover:bg-orange-500 flex justify-center`}
         >
           <BiWrench />
         </button>
