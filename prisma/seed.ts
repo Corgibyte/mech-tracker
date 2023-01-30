@@ -16,13 +16,13 @@ const seedMechs = async () => {
   const apostle = await db.player.create({
     data: {
       username: 'Apostle13th',
-      totalAssets: 11.8,
+      totalAssets: 20.6,
     },
   });
   const arbitor = await db.player.create({
     data: {
       username: 'ArbitorFallen',
-      totalAssets: 12.6,
+      totalAssets: 15.4,
     },
   });
 
@@ -87,8 +87,14 @@ const seedMechs = async () => {
       claimTime: new Date(2023, 0, 28, 10, 0),
       model: 'Charger CGR-1A1',
       claimValue: 6.5,
-      totalValue: 6.5,
+      totalValue: 6.5 + 2.8,
       playerId: arbitor.id,
+      refits: {
+        create: {
+          label: 'No label',
+          cost: 2.8,
+        },
+      },
     },
   });
   await db.mech.create({
@@ -96,7 +102,19 @@ const seedMechs = async () => {
       claimTime: new Date(2023, 0, 28, 10, 1),
       model: 'Cyclops CP-10-Z',
       claimValue: 6.0,
-      totalValue: 6.0,
+      totalValue: 6.0 + 3.8 + 3.4,
+      refits: {
+        create: [
+          {
+            label: 'No label',
+            cost: 3.8,
+          },
+          {
+            label: 'Includes Long Tom Art Level 3',
+            cost: 3.4,
+          },
+        ],
+      },
       playerId: apostle.id,
     },
   });
@@ -124,6 +142,30 @@ const seedMechs = async () => {
       model: 'Urbanmech UM-K9',
       claimValue: 2.9,
       totalValue: 2.9,
+      playerId: empress.id,
+    },
+  });
+  await db.mech.create({
+    data: {
+      claimTime: new Date(2023, 0, 29, 13, 0),
+      model: 'Atlas AS7-P',
+      claimValue: 8.4,
+      totalValue: 8.4,
+      playerId: empress.id,
+    },
+  });
+  await db.mech.create({
+    data: {
+      claimTime: new Date(2023, 0, 27, 18, 0),
+      model: 'Champion CHP-1NB',
+      claimValue: 0,
+      totalValue: 1,
+      refits: {
+        create: {
+          label: 'Replace ER PPC with ER L Lasers',
+          cost: 1,
+        },
+      },
       playerId: empress.id,
     },
   });
