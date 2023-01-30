@@ -25,9 +25,15 @@ export const loader = async ({ request, params }: LoaderArgs) => {
   });
   const mechs = await db.mech.findMany({
     include: MechDataInclude,
+    orderBy: {
+      claimTime: 'asc',
+    },
   });
   const refits = await db.refit.findMany({
     include: refitDataInclude,
+    orderBy: {
+      refitTime: 'asc',
+    },
   });
   const data: LoaderData = {
     players,

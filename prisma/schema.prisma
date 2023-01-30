@@ -25,6 +25,7 @@ model Mech {
   player     Player   @relation(fields: [playerId], references: [id])
   playerId   Int
   refits     Refit[]
+  isDeleted  Boolean  @default(false)
 }
 
 model Refit {

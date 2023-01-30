@@ -11,3 +11,5 @@ export function getColor(username: string) {
   }
   return '#000000';
 }
+
+export const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));

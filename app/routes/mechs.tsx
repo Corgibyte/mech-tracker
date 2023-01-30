@@ -10,7 +10,7 @@ const users = ['Empress', 'ArbitorFallen', 'TwigMaximus', 'Apostle13th'];
 export const action = async ({ params, request }: ActionArgs) => {
   const formData = await request.formData();
   const model = formData.get('model')?.toString() ?? '';
-  const cost = parseInt(formData.get('cost')?.toString() ?? '');
+  const cost = parseFloat(formData.get('cost')?.toString() ?? '');
   const user = formData.get('user')?.toString() ?? '';
   const name = formData.get('name')?.toString() ?? '';
   const legacy = formData.get('legacy')?.toString() ?? '';

@@ -1,6 +1,7 @@
 import { useFetcher } from '@remix-run/react';
 import React from 'react';
 import { MechsActionData } from '~/routes/mechs';
+import Spinner from './Generic/Spinner';
 
 const AddMech: React.FC = (props) => {
   const [isAdding, setIsAdding] = React.useState(false);
@@ -42,6 +43,8 @@ const AddMech: React.FC = (props) => {
             <div className='my-1.5'>
               <input
                 type='number'
+                step={0.1}
+                min={0}
                 name='cost'
                 className={inputStyles}
                 placeholder='Mech Cost'
@@ -66,8 +69,10 @@ const AddMech: React.FC = (props) => {
             <div className='mb-1 flex flex-row'>
               <button
                 type='submit'
-                className='px-2 mt-2 border-transparent rounded bg-amber-400 hover:bg-amber-300 text-black'
+                className='px-2 mt-2 flex flex-row items-center border-transparent rounded bg-amber-400 hover:bg-amber-300 text-black'
+                disabled={fetchMechAdd.state !== 'idle'}
               >
+                {fetchMechAdd.state !== 'idle' ? <Spinner /> : null}
                 Save Mech
               </button>
               <button
