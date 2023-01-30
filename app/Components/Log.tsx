@@ -23,7 +23,7 @@ const Log: React.FC<Props> = (props) => {
   const refitEvents = refits.map((refit) => ({
     label: `${refit.mech.player.username} refits ${
       refit.mech.model
-    } for $${refit.cost.toLocaleString()} M`,
+    } for $${refit.cost.toLocaleString()} M: ${refit.label}`,
     time: refit.refitTime,
   }));
   events = [...events, ...refitEvents];
